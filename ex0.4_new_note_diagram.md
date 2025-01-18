@@ -1,36 +1,4 @@
-# 0.4: New note diagram
 
-'''mermaid
-sequenceDiagram
-    participant browser
-    participant server
+#0.4: New note diagram
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    Note right of browser: When user write in textbox(input) and submit, browser sends a POST request for ../new_notes
-    activate server
-    server-->>browser: HTTP status code 302 (Redirect to /exampleapp/notes)
-    deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
-    activate server
-    server-->>browser: HTML document
-    deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-    activate server
-    server-->>browser: the css file
-    deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
-    activate server
-    server-->>browser: the JavaScript file
-    deactivate server
-
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    activate server
-    server-->>browser: [{ "content": "hope it's ok", "date": "2025-18-1" }, ... ]
-    deactivate server
-
-'''
+[![](https://mermaid.ink/img/pako:eNq9VN-LEzEQ_leGvHgH2-1dRZB9uKcTRbwf2IKgK0eazHbjdZOYTNpK6f_ubNMW9CjYQ92nZGbyzTffzsxaKKdRVCLi94RW4bWRsyC72gJ_XgYyynhpCabBLSOGpw42Lnp79uzCBldX2V7B_d14Ai2Rj9VwGClpg7FUsWxxHo19NGVjhriSnZ-j9H5ocflgHWGGu-UTBDNrCVyzB6_gU4sWEh9hGQxHGAuEK5q61ZmxPtE5SKshpmlnqNg_Y6ZWR5CZUegLjgSNC1CWh7Qx55WKzEIy8r663pjPA67tQOTdZHIPkSSlCL2S8PJiBGcfUZuAioAc_FJbn-A8g2l8kuOYgm_fnCTgc6q4-QDaqdShpX9Mr5PGsvtEhtQi8CNozBz_B8Fvz-D3Xi7kWAXj6U9oHunsCQMd-pV4zCLgClUiY2e_Z9k2HLWS8yGpFmMOGN_dQhNct739XW20JMnaOHuaOl_WUPOisdS3l6j40jrPU0svIrjHWhRsYWjMvtHF6NXg8vXgshawKXg4S_h6RExRiA4D_zHNK2zdB9WCq-52SFoGRq_thuNkIjf-YZWoKCQsRHBp1oqqkfPIt-T7_Lvltw_h9fbZue4QxFNNLtzkhbndm5uf7NLTvQ?type=png)](https://mermaid.live/edit#pako:eNq9VN-LEzEQ_leGvHgH2-1dRZB9uKcTRbwf2IKgK0eazHbjdZOYTNpK6f_ubNMW9CjYQ92nZGbyzTffzsxaKKdRVCLi94RW4bWRsyC72gJ_XgYyynhpCabBLSOGpw42Lnp79uzCBldX2V7B_d14Ai2Rj9VwGClpg7FUsWxxHo19NGVjhriSnZ-j9H5ocflgHWGGu-UTBDNrCVyzB6_gU4sWEh9hGQxHGAuEK5q61ZmxPtE5SKshpmlnqNg_Y6ZWR5CZUegLjgSNC1CWh7Qx55WKzEIy8r663pjPA67tQOTdZHIPkSSlCL2S8PJiBGcfUZuAioAc_FJbn-A8g2l8kuOYgm_fnCTgc6q4-QDaqdShpX9Mr5PGsvtEhtQi8CNozBz_B8Fvz-D3Xi7kWAXj6U9oHunsCQMd-pV4zCLgClUiY2e_Z9k2HLWS8yGpFmMOGN_dQhNct739XW20JMnaOHuaOl_WUPOisdS3l6j40jrPU0svIrjHWhRsYWjMvtHF6NXg8vXgshawKXg4S_h6RExRiA4D_zHNK2zdB9WCq-52SFoGRq_thuNkIjf-YZWoKCQsRHBp1oqqkfPIt-T7_Lvltw_h9fbZue4QxFNNLtzkhbndm5uf7NLTvQ)
