@@ -3,7 +3,7 @@ import { useState } from 'react'
 const Display = props => <div>{props.value}</div>
 const Button = props => <button onClick={props.onClick}>{props.text}</button>
 
-const Third = () => {
+const ThirdExample = () => {
   const [value, setValue] = useState(10)
 
   const setToValue = (newValue) => {
@@ -21,4 +21,4 @@ const Third = () => {
   )
 }
 
-export default Third
+export default ThirdExample

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import IncDec from './components/IncDec'
 import LeftRight from './components/LeftRight'
-import Third from './components/Third'
+import ThirdExample from './components/ThirdExample'
 
 const App = () => {
 
@@ -11,7 +11,7 @@ const App = () => {
       <br/>
       <LeftRight />
       <br/>
-      <Third />
+      <ThirdExample />
     </div>
     
   )
