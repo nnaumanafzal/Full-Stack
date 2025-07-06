@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import methods from './services/phonebook'
 import Filter from './components/Filter'
 import PersonsForm from './components/PersonsForm'
 import Persons from './components/Persons'
@@ -10,12 +10,11 @@ const App = () => {
   const handleFind = (event) => changeFind(event.target.value)
 
   useEffect(()=>{
-    axios
-      .get("http://localhost:3001/persons")
-      .then(response => {
-        setPersons(response.data)
-      })
+    methods
+      .getAll()
+      .then(response => setPersons(response))
   },[])
+
 
   return (
     <div>
@@ -24,7 +23,7 @@ const App = () => {
       <h3>add a new</h3>
       <PersonsForm persons={persons} setPersons={setPersons}/>
       <h3>Numbers</h3>
-      <Persons persons={persons} find={find}/>
+      <Persons persons={persons} setPersons={setPersons} find={find}/>
     </div>
   )
 }
