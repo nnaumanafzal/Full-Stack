@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import axios from'axios'
 import methods from '../services/phonebook.js'
 
-const PersonsForm = ({persons, setPersons}) => {
+const PersonsForm = ({persons, setPersons, setAlert}) => {
     
     const baseUrl = 'http://localhost:3001/persons' 
     const [newName, setNewName] = useState('')
@@ -21,11 +20,22 @@ const PersonsForm = ({persons, setPersons}) => {
             if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)){
                 methods
                     .update(personsId, newContact)
-                    .then(response => setPersons(persons.map(p => p.id !== personsId ? p : response)))
+                    .then(response => {
+                        setPersons(persons.map(p => p.id !== personsId ? p : response))
+                        setAlert({type: 'success', text: `Contact ${newName} is updated`})
+                    })
+                    .catch(() => {
+                        setPersons(persons.filter(p => p.id !== personsId))
+                        setAlert({type: 'error', text: `Information of ${newName} has already removed from server`})
+                    })
             }
         } else {
             methods.create(newContact).then(response => setPersons(persons.concat(response)))
+            setAlert({type: 'success', text: `Added ${newName}`})
         }
+        setTimeout(() => {
+          setAlert({type: null, text: null})
+        }, 5000)
         setNewName('')
         setNewNumber('')
     }

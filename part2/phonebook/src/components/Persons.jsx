@@ -1,12 +1,18 @@
 import methods from '../services/phonebook.js'
 
-const Persons = ({persons, setPersons, find}) => {
+const Persons = ({persons, setPersons, find, setAlert}) => {
 
     const handleDelete = (id, name) => {
         if(window.confirm(`Delete ${name} ?`)) { 
-            methods.remove(id)
+            methods
+                .remove(id)
+                .then( () => setAlert({type: 'success', text: `Removed ${name}`}))
+                .catch( () => setAlert({type: 'error', text: `Information of ${name} has alreadt removed from server`}))
             setPersons(persons.filter(person => person.id!==id))
         }
+        setTimeout(() => {
+          setAlert({type: null, text: null})
+        }, 5000)
     }
 
     return (
